@@ -22,7 +22,7 @@ public class Homework13 {
 
 
 
-        //2. Find out how many values are ending with “i”; EXAMPE 1
+        //2. Find out how many values are ending with “i”; EXAMPLE 1
         int counterI = 0;
         for (int i = 0; i < citiesArray.length; i++) {
             if (citiesArray[i].matches(".*i")) {
