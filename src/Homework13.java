@@ -84,6 +84,7 @@ public class Homework13 {
 
 //        System.out.println("Numerical array printed out in a string representation: " + Arrays.toString(numCities));
 
+        System.out.println();
 
 
 
@@ -93,12 +94,64 @@ public class Homework13 {
 
 
         //CLASS WORK - SEARCH MENU FOR THE ARRAY 28.08 //SECOND PART OF HOMEWORK
+
+        System.out.println("-------------------------------SEARCH MENU FOR THE ARRAY-------------------------------");
         Scanner scanner = new Scanner(System.in);
 
 
+        //1. first letter of the name with REGEX
+        System.out.println();
 
-        //CLASS TASK WITH USER INPUT - THE LAST PART
-        System.out.println("Please input the part of the name here: ");
+        System.out.println("1. Please input the first letter of the city name: ");
+        String userInputFirst = scanner.next();
+
+        for (String city: citiesArray) {
+            if (city.toLowerCase().matches("^"+userInputFirst.toLowerCase()+".*")) {
+                System.out.println("This city name starts with the letter: \"" + userInputFirst + "\" | " + city);
+            }
+        }
+
+//        //1. first letter of the name with charAT
+//
+//        for (String city: citiesArray) {
+//            if (city.toLowerCase().charAt(0) == userInputFirst.toLowerCase().charAt(0)) {
+//                System.out.println("This city name starts with the letter: \"" + userInputFirst + "\" | " + city);
+//            }
+//        }
+
+
+        //2. last letter of the name REGEX
+        System.out.println();
+
+        System.out.println("2. Please input the last letter of the city name: ");
+        String userInputLast = scanner.next();
+
+        for (String city: citiesArray) {
+            if (city.toLowerCase().matches(".*"+userInputLast.toLowerCase()+"")) {
+                System.out.println("This city name ends with the letter: \"" + userInputLast + "\" | " + city);
+            }
+        }
+
+
+
+        //3. length  of the name
+        System.out.println();
+
+        System.out.println("3. Please input the length of the city name: ");
+        int userInputLength = scanner.nextInt();
+
+        for (int i = 0; i < citiesArray.length; i++) {
+            if (citiesArray[i].length() == userInputLength) {
+                System.out.println("City name with the length of \"" + userInputLength + "\" letters is | " + citiesArray[i]);
+            }
+        }
+
+
+
+        //4. finding a part of the name
+        System.out.println();
+
+        System.out.println("4. Please input part of the city name here: ");
         String userInput = scanner.next();
 
         for (String city: citiesArray) {
@@ -109,31 +162,35 @@ public class Homework13 {
 
 
 
-        //CLASS TASK WITH USER INPUT - THE LAST PART
-        //CASE INSENSITIVE METHOD with regex
-        //WE WILL LOWER THE CASE OF THE USER INPUT AND THE CITY
-        System.out.println("Please input the part of the name here: ");
+        //CASE INSENSITIVE METHOD with regex + MAKING IT CASE INSENSITIVE BY LOWERING USER INPUT AND CITY CASE
+        System.out.println();
+        System.out.println("4.1 Please input part of the name here: ");
         String userInput2 = scanner.next();
 
         for (String city: citiesArray) {
             if (city.toLowerCase().matches(".*"+userInput2.toLowerCase()+".*")) {
-                System.out.println("This city matches with the RegEx: \"" + userInput + "\" | " + city);
+                System.out.println("This city matches with the RegEx: \"" + userInput2 + "\" | " + city);
             }
         }
 
 
         //CASE INSENSITIVE METHOD without regex - ONLY FOR THE FIRST LETTER (CHAR)
-        //WE WILL LOWER THE CASE OF THE USER INOUT AND THE CITY
-        System.out.println("Please input the part of the name here: ");
+        System.out.println();
+        System.out.println("4.2 Please input part of the name here: ");
         String userInput3 = scanner.next();
 
         for (String city: citiesArray) {
             if (city.toLowerCase().charAt(0) == userInput3.toLowerCase().charAt(0)) {
-                System.out.println("This city matches with the RegEx: \"" + userInput + "\" | " + city);
+                System.out.println("This city matches with the RegEx: \"" + userInput3 + "\" | " + city);
             }
         }
 
 
+
+
+        System.out.println();
+        System.out.println("----------------------------END OF SEARCH MENU FOR THE ARRAY-------------------------------");
+        System.out.println();
 
 
 
@@ -147,8 +204,7 @@ public class Homework13 {
         //looking for a digit -> \\d (a single digit) SAME AS [0-9]
 
         //VALIDATE YEAR RANGE: 1900 - 2100 -> [0-9]{4}
-        String validInput = "2020";
-        String invalidInput = "99999";
+
 
         //Good but can be better! Look below!
         //correct input (also works = ("\\d\\d\\d\\d")
@@ -174,15 +230,6 @@ public class Homework13 {
         } else {
             System.out.println("Valid input is not a valid year. Fully working!");
         }
-
-
-
-
-
-
-
-
-
 
     }
 }
